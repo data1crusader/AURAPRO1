@@ -1,0 +1,604 @@
+/* ============================================
+   AURA PRO — Analytics & Insights
+   Charts, trends, and data visualization
+   ============================================ */
+
+/* ── Container ── */
+.analytics-container {
+  padding: 20px;
+}
+
+/* ── BMI Gauge ── */
+.bmi-gauge {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 24px 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.bmi-gauge .gauge-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.bmi-gauge .gauge-svg {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.bmi-gauge .gauge-arc {
+  fill: none;
+  stroke-width: 18;
+  stroke-linecap: round;
+}
+
+.bmi-gauge .gauge-underweight {
+  stroke: #64B5F6;
+}
+
+.bmi-gauge .gauge-normal {
+  stroke: #10B981;
+}
+
+.bmi-gauge .gauge-overweight {
+  stroke: #F59E0B;
+}
+
+.bmi-gauge .gauge-obese {
+  stroke: #EF4444;
+}
+
+.bmi-gauge .gauge-bg {
+  fill: none;
+  stroke: var(--gray-100);
+  stroke-width: 18;
+  stroke-linecap: round;
+}
+
+.bmi-gauge .gauge-needle {
+  fill: var(--text-primary);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.bmi-gauge .gauge-needle-circle {
+  fill: var(--surface);
+  stroke: var(--text-primary);
+  stroke-width: 3;
+}
+
+.bmi-gauge .gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  padding: 0 12px;
+}
+
+.bmi-value {
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 12px;
+  line-height: 1;
+}
+
+.bmi-category {
+  display: inline-block;
+  font-size: var(--font-base);
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-top: 8px;
+}
+
+.bmi-category.underweight {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.bmi-category.normal {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.bmi-category.overweight {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.bmi-category.obese {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+/* Category range labels */
+.bmi-ranges {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.bmi-range-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.bmi-range-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.bmi-range-dot.underweight { background: #64B5F6; }
+.bmi-range-dot.normal { background: #10B981; }
+.bmi-range-dot.overweight { background: #F59E0B; }
+.bmi-range-dot.obese { background: #EF4444; }
+
+/* ── Chart Card ── */
+.chart-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+
+.chart-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.chart-card .chart-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chart-card .chart-title .chart-icon {
+  font-size: 18px;
+}
+
+.chart-card canvas {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
+.chart-card .chart-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.chart-card .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+}
+
+.chart-card .legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chart-card .legend-dot.blue { background: var(--blue-500); }
+.chart-card .legend-dot.green { background: var(--success); }
+.chart-card .legend-dot.orange { background: var(--warning); }
+.chart-card .legend-dot.pink { background: #EC4899; }
+.chart-card .legend-dot.purple { background: #6366F1; }
+.chart-card .legend-dot.red { background: var(--danger); }
+
+/* ── Time Filter ── */
+.time-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.time-filter .filter-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--gray-50);
+  border: 1.5px solid var(--gray-200);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.time-filter .filter-btn:hover {
+  border-color: var(--blue-300);
+  color: var(--blue-600);
+}
+
+.time-filter .filter-btn.active {
+  background: var(--blue-500);
+  color: #FFFFFF;
+  border-color: var(--blue-500);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.25);
+}
+
+/* ── Analytics Grid ── */
+.analytics-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* ── Summary Cards ── */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.summary-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.summary-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.summary-card .summary-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.summary-card .summary-value {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.summary-card .summary-label {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.summary-card .summary-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.summary-card .summary-change.positive {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.summary-card .summary-change.negative {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.summary-card .summary-change.neutral {
+  background: var(--gray-100);
+  color: var(--text-muted);
+}
+
+/* ── Specific Chart Sections ── */
+.weight-chart,
+.calorie-chart,
+.macro-chart,
+.nutrition-chart {
+  /* These extend .chart-card */
+}
+
+.calorie-chart .calorie-avg {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.calorie-chart .calorie-avg-value {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--blue-600);
+}
+
+.calorie-chart .calorie-avg-label {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+/* ── Insights List ── */
+.insights-list {
+  margin-bottom: 16px;
+}
+
+.insights-list .insights-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.insight-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: var(--transition);
+}
+
+.insight-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.insight-card.insight-success {
+  border-left: 4px solid var(--success);
+}
+
+.insight-card.insight-warning {
+  border-left: 4px solid var(--warning);
+}
+
+.insight-card.insight-info {
+  border-left: 4px solid var(--info);
+}
+
+.insight-card.insight-danger {
+  border-left: 4px solid var(--danger);
+}
+
+.insight-card .insight-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insight-card .insight-content {
+  flex: 1;
+}
+
+.insight-card .insight-title {
+  font-weight: 600;
+  font-size: var(--font-base);
+  margin-bottom: 4px;
+}
+
+.insight-card .insight-text {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Body Composition Card ── */
+.body-comp-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.body-comp-card .comp-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.body-comp-bar {
+  height: 24px;
+  border-radius: var(--radius-full);
+  display: flex;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.body-comp-bar .comp-segment {
+  height: 100%;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.body-comp-bar .comp-segment.fat {
+  background: linear-gradient(90deg, #FDE68A, #F59E0B);
+}
+
+.body-comp-bar .comp-segment.muscle {
+  background: linear-gradient(90deg, #6366F1, #818CF8);
+}
+
+.body-comp-bar .comp-segment.water {
+  background: linear-gradient(90deg, #42A5F5, #90CAF9);
+}
+
+.body-comp-bar .comp-segment.other {
+  background: var(--gray-300);
+}
+
+.body-comp-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.body-comp-legend .comp-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-xs);
+}
+
+.body-comp-legend .comp-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.body-comp-legend .comp-legend-dot.fat { background: #F59E0B; }
+.body-comp-legend .comp-legend-dot.muscle { background: #6366F1; }
+.body-comp-legend .comp-legend-dot.water { background: #42A5F5; }
+.body-comp-legend .comp-legend-dot.other { background: var(--gray-300); }
+
+.body-comp-legend .comp-legend-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.body-comp-legend .comp-legend-label {
+  color: var(--text-muted);
+}
+
+/* ── Weekly Report ── */
+.weekly-report {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.weekly-report::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue-400), var(--blue-600), var(--blue-400));
+}
+
+.weekly-report .report-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.weekly-report .report-icon {
+  font-size: 28px;
+}
+
+.weekly-report .report-title {
+  font-size: var(--font-md);
+  font-weight: 700;
+}
+
+.weekly-report .report-period {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.weekly-report .report-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.weekly-report .report-stat {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--gray-50);
+}
+
+.weekly-report .report-stat-value {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.weekly-report .report-stat-label {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.weekly-report .report-message {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--blue-50), #EDE9FE);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.weekly-report .report-message .msg-emoji {
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+/* ── Comparison Toggle ── */
+.comparison-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.comparison-toggle .toggle-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--gray-200);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.comparison-toggle .toggle-switch.active {
+  background: var(--blue-500);
+}
+
+.comparison-toggle .toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.comparison-toggle .toggle-switch.active::after {
+  transform: translateX(20px);
+}

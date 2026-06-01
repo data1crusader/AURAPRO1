@@ -1,0 +1,58 @@
+/* ============================================
+   AURA PRO v2 — Water & Steps Sheets
+   ============================================ */
+
+/* Water Sheet */
+.water-visual { text-align: center; padding: 12px 0; }
+.water-display { font-size: 48px; font-weight: 800; color: var(--blue-600); line-height: 1; }
+.water-unit { font-size: 16px; font-weight: 400; color: var(--text-muted); margin-left: 4px; }
+.water-goal-text { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.water-bar-wrap {
+  height: 8px; background: var(--gray-100); border-radius: 4px;
+  margin: 12px 0; overflow: hidden;
+}
+.water-bar-fill {
+  height: 100%; background: linear-gradient(90deg, #42A5F5, #1565C0);
+  border-radius: 4px; transition: width 0.6s ease;
+}
+.water-btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+.water-btns button {
+  padding: 12px 6px; background: var(--blue-50); border: 1.5px solid var(--blue-100);
+  border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer;
+  transition: var(--transition); text-align: center; line-height: 1.4;
+}
+.water-btns button:active { background: var(--blue-100); border-color: var(--blue-200); transform: scale(0.96); }
+.water-log-list { max-height: 200px; overflow-y: auto; }
+.water-log-entry {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid var(--gray-50);
+}
+.wl-time { font-size: 12px; color: var(--text-muted); }
+.wl-amount { font-weight: 600; font-size: 14px; }
+.wl-delete { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 16px; padding: 4px 8px; }
+.wl-delete:active { color: var(--danger); }
+
+/* Steps Sheet */
+.steps-display { text-align: center; padding: 16px 0; }
+.steps-big { font-size: 48px; font-weight: 800; color: var(--success); line-height: 1; }
+.steps-of { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.steps-input-row { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; }
+.steps-input-row button {
+  flex: 0 0 auto; padding: 10px 14px; background: var(--gray-50);
+  border: 1.5px solid var(--gray-200); border-radius: 10px; font-weight: 600;
+  cursor: pointer; transition: var(--transition); font-size: 13px;
+}
+.steps-input-row button:active { background: var(--gray-100); }
+.steps-input-row input {
+  flex: 1; padding: 12px; border: 2px solid var(--gray-200);
+  border-radius: 10px; font-size: 16px; text-align: center; appearance: none;
+}
+.steps-input-row input:focus { border-color: var(--blue-400); outline: none; }
+.sheet-action { display: block; width: 100%; margin: 8px 0 16px; }
+.steps-stats-row {
+  display: flex; justify-content: space-around; text-align: center;
+  padding-top: 12px; border-top: 1px solid var(--gray-100);
+}
+.steps-stats-row > div { }
+.steps-stats-row span { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.steps-stats-row small { display: block; font-size: 11px; color: var(--text-muted); font-weight: 500; }
